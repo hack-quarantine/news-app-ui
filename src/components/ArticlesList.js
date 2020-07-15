@@ -1,37 +1,35 @@
-import React, {Component} from 'react';
-import News from './News';
+import React, { Component } from 'react';
 import axios from 'axios';
-import {NEWS_API_TEST} from './constants';
-import {FlatList, View, SafeAreaView} from 'react-native';
+import { FlatList, View, SafeAreaView } from 'react-native';
+import News from './News';
+import { NEWS_API_TEST } from './constants';
 
 class ArticlesList extends Component {
   constructor(props) {
     super(props);
-    this.state = {articles: [], loading: true};
+    this.state = { articles: [], loading: true };
   }
 
   componentDidMount() {
     axios
       .get(NEWS_API_TEST)
-      .then((responseJson) => {
-        console.log('responseJson', responseJson);
-        this.setState({articles: responseJson.data.articles, loading: false});
+      .then(responseJson => {
+        this.setState({ articles: responseJson.data.articles, loading: false });
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
       });
   }
 
   render() {
     return (
       <View>
-        {this.state.articles.length === 0 ? null : (
+        { this.state.loading ? null : (
           <>
             <SafeAreaView>
               <FlatList
                 bounces={false}
                 data={this.state.articles}
-                renderItem={({item}) => (
+                renderItem={({ item }) => (
                   <News
                     author={item.author}
                     title={item.title}
@@ -43,7 +41,7 @@ class ArticlesList extends Component {
                     description={item.description}
                   />
                 )}
-                keyExtractor={(item) => item.url}
+                keyExtractor={item => item.url}
               />
             </SafeAreaView>
           </>

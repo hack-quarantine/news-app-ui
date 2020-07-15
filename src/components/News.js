@@ -1,49 +1,48 @@
 import React from 'react';
-import {Text, StyleSheet, View, Image} from 'react-native';
+import {
+  Text, StyleSheet, View, Image
+} from 'react-native';
 import Card from './Card';
-import {APP_DEFAULT_COLOR} from './constants';
+import { APP_DEFAULT_COLOR } from './constants';
 
-const DEFAULT_ICON =
-  'https://img.pngio.com/corporate-icon-at-getdrawingscom-free-corporate-icon-images-of-company-icon-png-512_512.png';
+const DEFAULT_ICON = 'https://img.pngio.com/corporate-icon-at-getdrawingscom-free-corporate-icon-images-of-company-icon-png-512_512.png';
 
-const News = (props) => {
-  return (
-    <Card style={styles.card}>
-      <View style={styles.container}>
+const News = props => (
+  <Card style={styles.card}>
+    <View style={styles.container}>
+      <View>
+        <Image
+          style={styles.tinyLogo}
+          source={{
+            uri: props.image_url != null ? props.image_url : DEFAULT_ICON,
+          }}
+        />
+      </View>
+      <View style={styles.content}>
         <View>
-          <Image
-            style={styles.tinyLogo}
-            source={{
-              uri: props.image_url != null ? props.image_url : DEFAULT_ICON,
-            }}
-          />
+          <Text style={styles.titleText} numberOfLines={2}>
+            {props.title}
+          </Text>
         </View>
-        <View style={styles.content}>
-          <View>
-            <Text style={styles.titleText} numberOfLines={2}>
-              {props.title}
-            </Text>
-          </View>
-          <View>
-            <Text style={styles.descriptionText} numberOfLines={3}>
-              {props.description}
-            </Text>
-          </View>
-          <View style={styles.sourceMainContainer}>
-            <View style={styles.sourceSubContainer}>
-              <View>
-                <Text style={styles.dateText}>{props.publishedAt}</Text>
-              </View>
-              <View>
-                <Text style={styles.sourceText}>{props.source}</Text>
-              </View>
+        <View>
+          <Text style={styles.descriptionText} numberOfLines={3}>
+            {props.description}
+          </Text>
+        </View>
+        <View style={styles.sourceMainContainer}>
+          <View style={styles.sourceSubContainer}>
+            <View>
+              <Text style={styles.dateText}>{props.publishedAt}</Text>
+            </View>
+            <View>
+              <Text style={styles.sourceText}>{props.source}</Text>
             </View>
           </View>
         </View>
       </View>
-    </Card>
-  );
-};
+    </View>
+  </Card>
+);
 
 const styles = StyleSheet.create({
   card: {

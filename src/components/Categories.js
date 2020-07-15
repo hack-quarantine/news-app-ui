@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, ScrollView} from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import Tag from './Tag';
 
 const CATEGORIES = [
@@ -11,19 +11,15 @@ const CATEGORIES = [
   'Technology',
 ];
 
-const Categories = (props) => {
-  return (
-    <View>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-        <View style={styles.container}>
-          {CATEGORIES.map((category, key) => {
-            return <Tag tagName={category} key={key} />;
-          })}
-        </View>
-      </ScrollView>
-    </View>
-  );
-};
+const Categories = () => (
+  <View>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <View style={styles.container}>
+        {CATEGORIES.map(category => <Tag tagName={category} key={category} />)}
+      </View>
+    </ScrollView>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {

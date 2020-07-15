@@ -1,15 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {APP_NAME} from './constants';
-import {APP_DEFAULT_COLOR} from './constants';
+import { View, Text, StyleSheet } from 'react-native';
+import { APP_NAME, APP_DEFAULT_COLOR } from './constants';
 
-const Header = (props) => {
-  return (
-    <View style={styles.appName}>
-      <Text style={styles.appNameText}>{APP_NAME}</Text>
-    </View>
-  );
-};
+const Header = () => (
+  <View style={styles.appName}>
+    <Text style={styles.appNameText}>{APP_NAME}</Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   appName: {

@@ -1,16 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {APP_DEFAULT_COLOR} from './constants';
+import { View, Text, StyleSheet } from 'react-native';
+import { APP_DEFAULT_COLOR } from './constants';
 
-const Tag = (props) => {
-  return (
-    <View style={{...styles.container, ...props.tagContainerStyle}}>
-      <Text style={{...styles.tag, ...props.tagTextStyle}}>
-        {props.tagName}
-      </Text>
-    </View>
-  );
-};
+const Tag = props => (
+  <View style={{ ...styles.container, ...props.tagContainerStyle }}>
+    <Text style={{ ...styles.tag, ...props.tagTextStyle }}>
+      {props.tagName}
+    </Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
