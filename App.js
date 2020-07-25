@@ -6,26 +6,16 @@
  * @flow strict-local
  */
 
+import 'react-native-gesture-handler';
 import React from 'react';
-import Categories from './src/components/Categories';
-import Header from './src/components/Header';
-import ArticlesList from './src/components/ArticlesList';
-import {StyleSheet, View} from 'react-native';
+import { Provider } from 'react-redux';
+import AppContainer from './AppContainer';
+import store from './src/redux/store';
 
-const App = (props) => {
+export default function App() {
   return (
-    <View style={styles.mainContainer}>
-      <Header />
-      <Categories />
-      <ArticlesList />
-    </View>
+    <Provider store={store}>
+        <AppContainer />
+    </Provider>
   );
-};
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: '#F5F5F5',
-  },
-});
-
-export default App;
+}
